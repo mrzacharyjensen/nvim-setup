@@ -213,6 +213,13 @@ return {
           end,
         },
       }
+
+      -- Adding swift lsp manually as is not available through Mason
+      require('lspconfig').sourcekit.setup {
+        cmd = {
+          '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp',
+        },
+      }
     end,
   },
 }
