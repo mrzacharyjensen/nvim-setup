@@ -4,6 +4,9 @@
 -- Leader W to save file/write to file
 vim.keymap.set('n', '<leader>w', '<Cmd>w<CR>', { desc = '[W]rite to file' })
 
+-- Meta + backspace to delete word in insert mode
+vim.keymap.set('i', '<M-BS>', '<C-w>')
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
