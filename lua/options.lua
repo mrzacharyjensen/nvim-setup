@@ -62,4 +62,15 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set autocommand for files to change tab to 2 spaces
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  command = 'set expandtab shiftwidth=2',
+})
+
+-- Set autocommand for Python files to change tab to 4 spaces
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '*.py',
+  command = 'set expandtab shiftwidth=4',
+})
+
 -- vim: ts=2 sts=2 sw=2 et
