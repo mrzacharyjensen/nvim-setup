@@ -73,4 +73,15 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'set expandtab shiftwidth=4',
 })
 
+-- Set autocommand for help pages to open in full window, not split pane
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*',
+  callback = function (event)
+    if vim.bo[event.buf].filetype == 'help' then
+      vim.cmd.only() -- same as piping only i.e. :help query | only
+      vim.bo.buflisted = true
+    end
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
