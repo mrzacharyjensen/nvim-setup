@@ -29,6 +29,7 @@ return {
         ['<leader>o'] = { name = 'W[o]rkspace', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
         ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+        ['<leader>l'] = { name = '[L]atex', _ = 'which_key_ignore' },
       }
       -- visual mode
       require('which-key').register({
