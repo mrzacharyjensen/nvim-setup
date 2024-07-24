@@ -62,6 +62,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Conceal syntax when not needed, such as quotes in JSON files.
+vim.opt.conceallevel = 2
+
 -- Set autocommand for files to change tab to 2 spaces
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   command = 'set expandtab shiftwidth=2',
