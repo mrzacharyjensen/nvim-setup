@@ -12,6 +12,9 @@ vim.opt.relativenumber = true
 -- Show active file in title of terminal
 vim.o.title = true
 
+-- Only show filename and not path in terminal window title
+vim.o.titlestring = '%t'
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
