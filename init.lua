@@ -34,4 +34,7 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+-- [[ Configure macros that are set when buffer is loaded ]]
+require 'macros'
+
 -- vim: ts=2 sts=2 sw=2 et
