@@ -10,7 +10,8 @@ require('lazy').setup({
   -- for easy switching on/off via commenting
   require 'plugins/gitsigns',
   require 'plugins/which-key',
-  require 'plugins/telescope',
+  -- require 'plugins/telescope',
+  require 'plugins.fzf-lua',
   require 'plugins/lspconfig',
   require 'plugins/conform',
   require 'plugins/cmp',
