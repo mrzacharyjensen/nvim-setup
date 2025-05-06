@@ -25,6 +25,7 @@ require('lazy').setup({
   require 'plugins/treesj',
   require 'plugins/vimtex',
   require 'plugins.xcodebuild',
+  require 'plugins.lualine',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
