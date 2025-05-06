@@ -81,6 +81,11 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end,
 })
 
+-- Set autocommand for Markdown files to have rendered linebreaks and spelling
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '*.md',
+  command = 'setlocal linebreak spell spelllang=en_nz',
+})
 
 -- Virtual text diagnostic
 -- To get back to inline, do virtual_text = true instead.
