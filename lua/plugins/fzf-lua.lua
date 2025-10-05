@@ -9,7 +9,9 @@ return {
   config = function()
     local fzf = require("fzf-lua")
     fzf.setup({
-
+      -- previewers = {
+      --   builtin = { treesitter = { enable = false } }
+      -- }
     })
 
     -- Files
@@ -43,6 +45,8 @@ return {
     vim.keymap.set('n', '<leader>sD', function() require("fzf-lua").diagnostics_workspace() end,
       { desc = '[S]earch [D]iagnostics (Workspace)' })
     vim.keymap.set('n', '<leader>st', '<Cmd>TodoFzfLua<CR>', { desc = '[S]earch [S]elect FZF' })
+    vim.keymap.set('n', '<leader>sn', function() require("fzf-lua").files({ cwd = vim.fn.stdpath 'config' }) end,
+      { desc = '[S]earch [N]eovim Config' })
   end
 
 

@@ -17,7 +17,7 @@ require('lazy').setup({
   require 'plugins/cmp',
   require 'plugins/todo-comments',
   require 'plugins/mini',
-  -- require 'plugins.treesitter',
+  require 'plugins.treesitter',
   require 'plugins/indent-blankline',
   require 'plugins/lint',
   require 'plugins/autopairs',
@@ -26,6 +26,10 @@ require('lazy').setup({
   require 'plugins/vimtex',
   require 'plugins.xcodebuild',
   require 'plugins.lualine',
+  require 'plugins.luasnip',
+  require 'plugins.colorizer',
+
+  require 'themes.rose-pine'
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
