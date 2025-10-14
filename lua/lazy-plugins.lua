@@ -24,7 +24,7 @@ require('lazy').setup({
   require 'plugins/oil',
   require 'plugins/treesj',
   require 'plugins/vimtex',
-  require 'plugins.xcodebuild',
+  -- require 'plugins.xcodebuild',
   require 'plugins.lualine',
   require 'plugins.luasnip',
   require 'plugins.colorizer',

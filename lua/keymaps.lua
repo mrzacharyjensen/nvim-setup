@@ -1,6 +1,53 @@
 -- Leader W to write out file
 vim.keymap.set('n', '<leader>w', '<Cmd>w<CR>', { desc = '[W]rite to file' })
 
+vim.keymap.set('n', '<leader>z', function()
+  vim.notify('hi', vim.log.levels.ERROR)
+end, { desc = '[z] Test function' })
+
+-- Leader X to run command on current line
+vim.keymap.set({ 'n', 'v' }, '<leader>x', function()
+  local mode = vim.fn.mode()
+  local command
+  if mode == 'n' then
+    -- If single line
+    command = vim.fn.getline('.')
+  else
+    -- If multiple lines in visual mode
+    local start_pos = vim.fn.getpos("'<")[2]
+    local end_pos = vim.fn.getpos("'>")[2]
+    command = table.concat(vim.fn.getline(start_pos, end_pos), "\n")
+  end
+
+  local stdout, stderr = {}, {}
+
+  vim.fn.jobstart(command, {
+    stdout_buffered = true,
+    stderr_buffered = true,
+    on_stdout = function(_, data)
+      if data and #data > 0 and data[1] ~= '' then
+        vim.list_extend(stdout, data)
+      end
+    end,
+    on_stderr = function(_, data)
+      if data and #data > 0 and data[1] ~= '' then
+        vim.list_extend(stderr, data)
+      end
+    end,
+    on_exit = function(_, code)
+      if #stdout > 0 then
+        vim.api.nvim_echo({ { table.concat(stdout, '\n'), "Normal" } }, true, {})
+      elseif #stderr > 0 then
+        vim.api.nvim_echo({ { table.concat(stderr, '\n'), "Normal" } }, true, {})
+      elseif code ~= 0 then
+        vim.notify("Command exited with code " .. code, vim.log.levels.ERROR)
+      else
+        vim.notify("Command succeeded (no output)", vim.log.levels.INFO)
+      end
+    end
+  })
+end, { desc = 'E[x]ecute line asynchronously' })
+
 -- Emacs style key movements in insert mode
 
 -- backward-char
