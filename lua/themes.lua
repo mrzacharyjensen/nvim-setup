@@ -1,7 +1,8 @@
 -- Use one of the default inbuilt themes
 -- vim.cmd("colorscheme peachpuff")
 
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme conifer")
 
 -- Delete Neovim background colouring, and use terminal background colours
 vim.cmd [[
